@@ -1,0 +1,11 @@
+{
+    "name": "ludo/mvc-objet",
+    "description": "salut",
+    "type": "project",
+    "autoload": {
+        "psr-4":{
+            "MVCObjet\\": "src"
+        }
+    },
+    "require": {}
+}
