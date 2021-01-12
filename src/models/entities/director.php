@@ -23,9 +23,9 @@ public function getId(): int
         return $this->first_name;
     }
 
-    public function setFirstName($First): director
+    public function setFirstName(string $first_name): director
     {
-        $this->first_name = $First;
+        $this->first_name = $first_name;
         return $this;
     }
 
@@ -35,9 +35,9 @@ public function getId(): int
         return $this->last_name;
     }
 
-    public function setLastName($Last): director
+    public function setLastName(string $last_name): director
     {
-        $this->last_name = $Last;
+        $this->last_name = $last_name;
         return $this;
     }
 

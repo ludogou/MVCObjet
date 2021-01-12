@@ -23,9 +23,9 @@ public function getId(): int
         return $this->first_name;
     }
 
-    public function setFirstName($First): actor
+    public function setFirstName(string $first_name): actor
     {
-        $this->first_name = $First;
+        $this->first_name = $first_name;
         return $this;
     }
 
@@ -35,9 +35,9 @@ public function getId(): int
         return $this->last_name;
     }
 
-    public function setLastName($Last): actor
+    public function setLastName(string $last_name): actor
     {
-        $this->last_name = $Last;
+        $this->last_name = $last_name;
         return $this;
     }
 

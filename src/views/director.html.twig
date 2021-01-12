@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Director {% endblock %}
+
+{% block head %}
+
+<style>
+.card {
+    opacity: 0;
+   
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}
+.card.load {
+    opacity: 1;
+}
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+ <p class="lead">Listes des Directeurs : </p>
+{% endblock %}
+
+
+{% block content1 %}
+{% for director in directors %}
+<div class="card w-25 text-center shadow p-4 mr-2 mb-2 ">
+{{director.firstName}}
+{{director.lastName}}
+</div>
+{% endfor %}
+{% endblock %}
+
+
+{% block lien %}
+<a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/acteurs">liste des acteurs</a>
+{% endblock %}
+
+
+{% block test %}
+<script>
+    $(function() {
+        $(".card").addClass("load");
+    });  
+</script>
+{% endblock %}

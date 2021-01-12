@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+{% block head %}
+<title>MonSite -{% block title %}{% endblock %}</title>
+{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+<div id="content1" class='d-flex flex-row flex-wrap'>{% block content1 %}{% endblock %}</div>
+<div id="content" class=' justify-content-start'>{% block content %}{% endblock %}</div>
+{% block lien %}{% endblock %}
+{% block test %}{% endblock %}
+</body>
+</html>
