@@ -12,8 +12,7 @@ class movie
     private $duration;
     private $date;
     private $cover_image;
-    private $genre;
-    private $director;
+ 
 
     public function getId(): int
     {
@@ -61,12 +60,12 @@ class movie
     }
 
 
-    public function getDate():\DateTime 
+    public function getDate():string
     {
         return $this->date;
     }
 
-    public function setDate(DateTime $date): movie
+    public function setDate(string $date): movie
     {
         $this->date = $date;
         return $this;
