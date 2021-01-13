@@ -21,29 +21,37 @@ body{
     opacity: 1;
 }
 </style>
+
 {% endblock %}
 
 {% block content %}
-<p class="lead">Listes des Acteurs : </p> 
-{% for acteur in acteurs %}
-<div class="card w-25 bg-dark text-white text-center shadow p-4 mb-4 ">
-{{acteur.firstName}}
-{{acteur.lastName}}
+<h1 class="lead text-white front"> Film : </h1> 
+<div class="card w-75 bg-dark text-center text-white p-4 mb-4 ">
+<h2>{{movie.title}} ({{movie.date | date('d/m/Y') }})</h2>
+
+{{movie.genre.name}} - {{movie.director.firstname}} &nbsp; {{movie.director.lastname}} 
+<div>
+<img src="{{ movie.coverImage}}" witdh="50">
 </div>
-{% endfor %}
+
+<p class="lead">{{movie.description}}</p>
+</div>
 {% endblock %}
 
 
 {% block lien %}
+<a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/acteurs">liste des acteurs</a>
 <a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/directors">liste des directeurs</a>
 {% endblock %}
 
 
 {% block test %}
+
 <script>
     $(function() {
         $(".card").addClass("load");
     });
     
 </script>
+
 {% endblock %}

@@ -14,6 +14,7 @@ use MVCObjet\models\entities\Genre;*/
 use MVCObjet\models\services\GenreService;
 use MVCObjet\models\services\ActorService;
 use MVCObjet\models\services\DirectorService;
+use MVCObjet\models\services\MovieService;
 use Twig\Environment;
 
 class FrontController
@@ -22,6 +23,7 @@ class FrontController
     private $genreService;
     private $actorService;
     private $directorService;
+    private $movieService;
     private $twig;
     
 
@@ -31,6 +33,7 @@ class FrontController
         $this->genreService = new GenreService();
         $this->actorService = new ActorService();
         $this->directorService = new DirectorService();
+        $this->movieService = new MovieService();
         $this->twig = $twig;
     }
 
@@ -58,5 +61,15 @@ class FrontController
     {
         $directors = $this->directorService->getAllDirector();
         echo $this->twig->render('director.html.twig', ["directors" => $directors]);
+}
+
+public function genre($id){
+    $genre = $this->genreService->getById($id);
+    echo $this->twig->render('genreResult.html.twig', ['genre'=>$genre]);
+}
+
+public function movie($id){
+    $movie = $this->movieService->getById($id);
+    echo $this->twig->render('movie.html.twig', ['movie'=>$movie]);
 }
 }

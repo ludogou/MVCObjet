@@ -36,18 +36,28 @@ $base  = dirname($_SERVER['PHP_SELF']);
 if (ltrim($base, '/')) {
     $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], strlen($base));
 }
-$klein = new \Klein\Klein();
-$klein->respond('GET', '/hello-world', function() {
+$route = new \Klein\Klein();
+$route->respond('GET', '/hello-world', function() {
     return 'hello world!!';
 });
-$klein->respond('GET', '/genres', function() use($fc) {
+$route->respond('GET', '/genres', function() use($fc) {
     // use est une manière d'effectuer une closure en PHP 
     $fc->genres();
 });
-$klein->respond('GET', '/acteurs', function() use($fc) {
+$route->respond('GET', '/acteurs', function() use($fc) {
     $fc->acteurs();
 });
-$klein->respond('GET', '/directors', function() use($fc) {
+$route->respond('GET', '/directors', function() use($fc) {
     $fc->directors();
 });
-$klein->dispatch();
+$route->respond('GET', '/genre', function() use($fc) {
+    $fc->genre(1);
+});
+$route->respond('GET', '/movie/[:id]', function($request) use($fc) {
+    $fc->movie($request->id);
+});
+
+
+
+    
+$route->dispatch();

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Genre {% endblock %}
+
+{% block head %}
+
+
+{% endblock %}
+{% block body %}
+ <p class="lead">Un Genre : </p>
+{% endblock %}
+
+
+{% block content1 %}
+
+<div class="card w-25 bg-dark text-white text-center shadow p-4 mr-2 mb-2 ">
+{{genre.name}}
+</div>
+
+{% endblock %}
+
+
+{% block lien %}
+<a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/acteurs">liste des acteurs</a>
+<a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/directors">liste des directeurs</a>
+{% endblock %}
+
+
+{% block test %}
+
+{% endblock %}
