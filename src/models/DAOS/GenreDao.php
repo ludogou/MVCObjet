@@ -20,7 +20,7 @@ class GenreDao extends BaseDao
         }
     }
 
-    public function findById($id) : genre {
+    public function findById($id)  {
         $stmt = $this ->db->prepare("SELECT * FROM genre WHERE id = :id");
         $res = $stmt->execute([':id'=>$id]);
 

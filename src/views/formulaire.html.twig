@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %} Actor {% endblock %}
+
+{% block head %}
+<style>
+body{
+    background-color: grey;
+}
+.card {
+    opacity: 0;
+   
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+}
+.card.load {
+    opacity: 1;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Ajouter un film :</h1>
+
+<form action="" method="post">
+
+    <div class="container border p-4 mb-4">
+
+        <input type="text" class='form-control form-control-mb-3' name='title' placeholder="titre"><br />
+
+        <input type="text" class="form-control form-control-mb-3" name="description" placeholder="description"><br />
+
+         <input type="text" class='form-control form-control-mb-3' name='duration' placeholder="duration"><br />
+
+        <input type="date" class="form-control form-control-mb-3" name="date" placeholder="date"><br />
+
+         <input type="text" class='form-control form-control-mb-3'name='image' placeholder="image"><br />
+
+        <input type="text" class="form-control form-control-mb-3" name="genre" placeholder="genre"><br />
+         
+        <input type="submit" value="connexion" name="submit">
+       
+    </div>
+</form>
+
+{% endblock %}
+
+
+{% block lien %}
+<a class='btn btn-secondary p-1 m-1' href="/php/MVCObjet/directors">liste des directeurs</a>
+{% endblock %}
+
+
+{% block test %}
+<script>
+    $(function() {
+        $(".card").addClass("load");
+    });
+    
+</script>
+{% endblock %}

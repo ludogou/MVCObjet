@@ -71,5 +71,8 @@ public function genre($id){
 public function movie($id){
     $movie = $this->movieService->getById($id);
     echo $this->twig->render('movie.html.twig', ['movie'=>$movie]);
+    echo'<pre>';
+    print_r($movie);
+    echo'</pre>';
 }
 }

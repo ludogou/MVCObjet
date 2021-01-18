@@ -4,8 +4,10 @@ namespace MVCObjet\models\entities;
 class actor
 {
     private $id;
-    private $first_name;
-    private $last_name;
+    private $firstName;
+    private $lastName;
+   
+   
 
 public function getId(): int
     {
@@ -20,26 +22,25 @@ public function getId(): int
 
     public function getFirstName():String
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     public function setFirstName(string $first_name): actor
     {
-        $this->first_name = $first_name;
+        $this->firstName = $first_name;
         return $this;
     }
 
     
     public function getLastName():String
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function setLastName(string $last_name): actor
     {
-        $this->last_name = $last_name;
+        $this->lastName = $last_name;
         return $this;
     }
-
-
+  
 }

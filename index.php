@@ -1,6 +1,7 @@
 <?php
 require_once "vendor/autoload.php";
 
+use MVCObjet\controllers\BackController;
 use MVCObjet\controllers\FrontController;
 
 use Twig\Environment;
@@ -17,6 +18,7 @@ $twig = new Environment($loader,['cache'=>false]);
 
 
 $fc = new FrontController($twig);
+$bc = new BackController($twig);
 /*$fc->index();*/
 
 
@@ -56,6 +58,10 @@ $route->respond('GET', '/genre', function() use($fc) {
 $route->respond('GET', '/movie/[:id]', function($request) use($fc) {
     $fc->movie($request->id);
 });
+$route->respond('POST', '/addMovie', function($request,$post) use($bc) {
+    $bc->addMovie($request->paramsPost());
+});
+
 
 
 

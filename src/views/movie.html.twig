@@ -26,15 +26,20 @@ body{
 
 {% block content %}
 <h1 class="lead text-white front"> Film : </h1> 
-<div class="card w-75 bg-dark text-center text-white p-4 mb-4 ">
+<div class="card w-50 bg-dark text-center text-white p-4 mb-4 ">
 <h2>{{movie.title}} ({{movie.date | date('d/m/Y') }})</h2>
-
+<small>
 {{movie.genre.name}} - {{movie.director.firstname}} &nbsp; {{movie.director.lastname}} 
-<div>
-<img src="{{ movie.coverImage}}" witdh="50">
-</div>
+</small>
+<img src="{{ movie.coverImage}}" witdh="">
+
 
 <p class="lead">{{movie.description}}</p>
+
+<h2>Acteurs : </h2>
+{% for actors in movie.actors %}
+{{actors.firstName}}&nbsp;{{actors.lastName}}
+{% endfor %}
 </div>
 {% endblock %}
 

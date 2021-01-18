@@ -12,6 +12,9 @@ class movie
     private $duration;
     private $date;
     private $cover_image;
+    private $genre;
+    private $director;
+    public $actors;
  
 
     public function getId(): int
@@ -19,7 +22,7 @@ class movie
         return $this->id;
     }
 
-    public function setId(int $Id): movie
+    public function setId($Id): movie
     {
         $this->id = $Id;
         return $this;
@@ -60,7 +63,7 @@ class movie
     }
 
 
-    public function getDate():string
+    public function getDate() : string
     {
         return $this->date;
     }
@@ -70,6 +73,7 @@ class movie
         $this->date = $date;
         return $this;
     }
+    
     public function getCoverImage(): String
     {
         return $this->cover_image;
@@ -80,6 +84,8 @@ class movie
         $this->cover_image = $cover_image;
         return $this;
     }
+    /******************************************************** */
+
     public function getGenre():genre
     {
       return  $this->genre; 
@@ -88,6 +94,8 @@ class movie
         $this->genre=$genre;
         return $this;
     }
+    /********************************************************** */
+
     public function getDirector():director {
         return $this->director;
     }
@@ -95,4 +103,35 @@ class movie
         $this->director = $director;
         return $this;
     }
+    /********************************************************** */
+
+    public function getActor():actor {
+        return $this->actors;
+
+    }
+    public function setActor($actors):movie{
+        $this->actors = $actors;
+        return $this;
+
+    }
+
+    public function addActor(actor $actor):void{
+        if (is_array($this->actors) || is_object($this->actors)){
+            foreach($this->actors as $a){
+                if($a->getId()== $actor->getId()){
+                    return;
+                }
+            }
+        }
+        $this->actors[]=$actor;
+    }
+
+    public function deleteActor(Actor $actor): void
+{
+    $this->actors = array_filter($this->actors, function (Actor $a) use ($actor){
+        return $a->getId() != $actor->getId;
+    });
+}
+
+
 }
